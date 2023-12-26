@@ -1,12 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { DynamoDBClient, PutItemCommand, ScanCommand } = require('@aws-sdk/client-dynamodb');
+const { DynamoDBClient, PutItemCommand } = require('@aws-sdk/client-dynamodb');
 const cors = require('cors');
 const winston = require('winston');
 const WinstonCloudWatch = require('winston-cloudwatch');
 
 const app = express();
-const PORT = 3000;
+const PORT = 3000; // Set your desired port
 
 // Configure Winston logger
 const logger = winston.createLogger({
@@ -30,12 +30,11 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const dynamoDB = new DynamoDBClient({
-    region: 'us-east-2',
+    region: 'us-east-2', 
 });
 
 const tableName = 'hellostaticwebhost';
 
-// Submit data endpoint
 app.post('/submit', async (req, res) => {
     try {
         const { username, phone } = req.body;
@@ -58,25 +57,6 @@ app.post('/submit', async (req, res) => {
     }
 });
 
-// View DB endpoint
-app.get('/viewDb', async (req, res) => {
-    try {
-        const scanParams = {
-            TableName: tableName,
-        };
-        const result = await dynamoDB.send(new ScanCommand(scanParams));
-        const data = result.Items.map(item => ({
-            username: item.username.S,
-            phone: item.phone.S,
-        }));
-        res.json(data);
-    } catch (error) {
-        logger.error('Error fetching data from DynamoDB:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-});
-
-// Server listen
 app.listen(PORT, '0.0.0.0', () => {
     logger.info(`Server is running on http://localhost:${PORT}`);
 });

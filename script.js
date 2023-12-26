@@ -1,4 +1,4 @@
-const backendUrl = 'http://18.220.119.198:3000'; // Update with your EC2 public IP
+const backendUrl = 'http://3.17.11.122:3000';
 
 function submitForm() {
     const username = document.getElementById('username').value;
@@ -16,4 +16,14 @@ function submitForm() {
         window.location.href = `welcome.html?username=${data.username}`;
     })
     .catch(error => console.error('Error:', error));
+}
+
+function viewDb() {
+    fetch(`${backendUrl}/viewDb`)
+    .then(response => response.json())
+    .then(data => {
+        // Display data in the console for now (modify as needed)
+        console.log('All data from DynamoDB:', data);
+    })
+    .catch(error => console.error('Error fetching data:', error));
 }

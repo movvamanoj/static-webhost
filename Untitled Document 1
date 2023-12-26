@@ -1,0 +1,158 @@
+[ec2-user@ip-172-31-27-195 ~]$ history
+    1  ls
+    2  sudo yum install nodejs npm
+    3  npm install express body-parser aws-sdk
+    4  vi app.js
+    5  node app.js
+    6  node app.js --trace-warnings
+    7  lsof -i :3000
+    8  kill -9 25936
+    9  lsof -i :3000
+   10  node app.js --trace-warnings
+   11  vi app.js
+   12  npm install aws-sdk@^3.0.0
+   13  node app.js --trace-warnings
+   14  vi app.js
+   15  rm app.js 
+   16  vi app.js
+   17  node app.js --trace-warnings
+   18  npm install @aws-sdk/client-dynamodb
+   19  npm install @aws-sdk/credential-provider-ini
+   20  node app.js --trace-warnings
+   21  sudo lsof -i :3000
+   22  sudo kill -9 26107
+   23  node app.js --trace-warnings
+   24  sudo lsof -i :3000
+   25  sudo kill -9 26463
+   26  node app.js --trace-warnings
+   27  sudo lsof -i :3000
+   28  sudo kill -9 26700
+   29  node app.js --trace-warnings
+   30  sudo lsof -i :3000
+   31  sudo kill -9 27064
+   32  node app.js --trace-warnings
+   33  sudo lsof -i :3000
+   34  sudo kill -9 27343
+   35  node app.js --trace-warnings
+   36  sudo lsof -i :3000
+   37  sudo kill -9 28019
+   38  node app.js --trace-warnings
+   39  sudo lsof -i :3000
+   40  sudo kill -9 28242
+   41  node app.js --trace-warnings
+   42  sudo lsof -i :3000
+   43  sudo kill -9 28421
+   44  node app.js --trace-warnings
+   45  npm install cors
+   46  vi app.js 
+   47  cat app.js
+   48  rm app.js 
+   49  vi app.js
+   50  rm app.js 
+   51  vi app.js
+   52  rm app.js 
+   53  vi app.js
+   54  rm app.js 
+   55  vi app.js
+   56  rm app.js 
+   57  vi app.js
+   58  history
+   59  node app.js --trace-warnings
+   60  sudo lsof -i :3000
+   61  sudo kill -9 28607
+   62  node app.js --trace-warnings
+   63  npm init -y
+   64  npm install winston
+   65  node app.js --trace-warnings
+   66  vi app.js 
+   67  rm app.js 
+   68  vi app.js
+   69  vi /etc/awslogs/awslogs.conf
+   70  cd /etc
+   71  ls
+   72  sudo yum install -y amazon-cloudwatch-agent
+   73  sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+   74  sudo systemctl start amazon-cloudwatch-agent
+   75  sudo systemctl enable amazon-cloudwatch-agent
+   76  sudo systemctl status amazon-cloudwatch-agent
+   77  sudo mkdir /var/awslogs
+   78  sudo vi /var/awslogs/awslogs.conf
+   79  sudo /opt/aws/amazon-cloudwatch-agent/bin/start-amazon-cloudwatch-agent
+   80  sudo tail -f /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
+   81  sudo systemctl status amazon-cloudwatch-agent
+   82  cat /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+   83  sudo systemctl start amazon-cloudwatch-agent
+   84  sudo systemctl status amazon-cloudwatch-agent
+   85  cd
+   86  ls
+   87  sudo vi /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+   88  sudo vi /var/awslogs/awslogs.conf
+   89  sudo /opt/aws/amazon-cloudwatch-agent/bin/start-amazon-cloudwatch-agent
+   90  sudo systemctl status amazon-cloudwatch-agent
+   91  cat /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+   92  ls -l /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+   93  sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+   94  cat /var/awslogs/etc/awslogs.conf
+   95  sudo mkdir -p /var/awslogs/etc/
+   96  sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+   97  sudo rm -rf /var/awslogs/etc/*
+   98  sudo rm -rf /opt/aws/amazon-cloudwatch-agent/etc/*
+   99  sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+  100  sudo /opt/aws/amazon-cloudwatch-agent/bin/start-amazon-cloudwatch-agent
+  101  sudo yum install -y amazon-cloudwatch-agent
+  102  sudo vi /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+  103  sudo service amazon-cloudwatch-agent start
+  104  sudo service amazon-cloudwatch-agent restart
+  105  sudo service amazon-cloudwatch-agent status
+  106  sudo tail -n 20 /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
+  107  sudo vi /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+  108  sudo service amazon-cloudwatch-agent restart
+  109  sudo service amazon-cloudwatch-agent status
+  110  sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+  111  sudo touch /opt/aws/amazon-cloudwatch-agent/etc/common-config.toml
+  112  sudo service amazon-cloudwatch-agent restart
+  113  sudo service amazon-cloudwatch-agent status
+  114  sudo tail -n 20 /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
+  115  sudo service amazon-cloudwatch-agent status
+  116  sudo cat /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+  117  ls
+  118  sudo tail -n 20 /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
+  119  sudo service amazon-cloudwatch-agent status
+  120  sudo service amazon-cloudwatch-agent restart
+  121  sudo service amazon-cloudwatch-agent status
+  122  sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+  123  sudo touch /opt/aws/amazon-cloudwatch-agent/etc/common-config.toml
+  124  sudo service amazon-cloudwatch-agent restart
+  125  sudo service amazon-cloudwatch-agent status
+  126  [200~sudo tail -n 20 /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
+  127  ~
+  128  sudo tail -n 20 /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
+  129  cat /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+  130  sudo service amazon-cloudwatch-agent restart
+  131  sudo tail -n 20 /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
+  132  sudo service amazon-cloudwatch-agent restart
+  133  aws logs describe-log-groups --region us-east-2
+  134  sud /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
+  135  sudo service amazon-cloudwatch-agent restart
+  136  sudo vi /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+  137  sudo service amazon-cloudwatch-agent restart
+  138  aws logs describe-log-groups --region us-east-2
+  139  sudo service amazon-cloudwatch-agent status
+  140  sudo service amazon-cloudwatch-agent stop
+  141  sudo service amazon-cloudwatch-agent status
+  142  sudo service amazon-cloudwatch-agent start
+  143  sudo service amazon-cloudwatch-agent status
+  144  aws logs describe-log-groups --region us-east-2
+  145  sudo service amazon-cloudwatch-agent restart
+  146  aws logs describe-log-groups --region us-east-2
+  147  sudo vi /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+  148  sudo /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
+  149  sudo cat /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
+  150  cat app.
+  151  cat app.log 
+  152  clear
+  153  sudo tail -n 20 /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
+  154  cat app.js
+  155  clear
+  156  history
+
