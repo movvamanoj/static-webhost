@@ -1,3 +1,4 @@
+// app.js backend
 const express = require('express');
 const bodyParser = require('body-parser');
 const { DynamoDBClient, PutItemCommand, ScanCommand } = require('@aws-sdk/client-dynamodb');
@@ -22,7 +23,7 @@ const logger = winston.createLogger({
     ],
     format: winston.format.combine(
         winston.format.timestamp(),
-        winston.format.json()   
+        winston.format.json()  
     ),
 });
 
