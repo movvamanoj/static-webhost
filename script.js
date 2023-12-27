@@ -19,11 +19,45 @@ function submitForm() {
 }
 
 function viewDb() {
+    console.log('View DB button clicked');
+
     fetch(`${backendUrl}/viewDb`)
-    .then(response => response.json())
+    .then(response => {
+        console.log('Response status:', response.status);
+        return response.json();
+    })
     .then(data => {
-        // Display data in the console for now (modify as needed)
-        console.log('All data from DynamoDB:', data);
+        // Display data in the index.html page
+        const dbDataElement = document.getElementById('dbData');
+        dbDataElement.innerHTML = ''; // Clear previous data
+
+        // Create a table to display the data
+        const table = document.createElement('table');
+        table.border = '1';
+
+        // Create table headers
+        const headers = ['Username', 'Phone'];
+        const headerRow = document.createElement('tr');
+        headers.forEach(header => {
+            const th = document.createElement('th');
+            th.textContent = header;
+            headerRow.appendChild(th);
+        });
+        table.appendChild(headerRow);
+
+        // Create table rows with data
+        data.forEach(item => {
+            const row = document.createElement('tr');
+            Object.values(item).forEach(value => {
+                const td = document.createElement('td');
+                td.textContent = value;
+                row.appendChild(td);
+            });
+            table.appendChild(row);
+        });
+
+        // Append the table to the index.html page
+        dbDataElement.appendChild(table);
     })
     .catch(error => console.error('Error fetching data:', error));
 }

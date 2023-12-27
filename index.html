@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Form</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form id="userForm">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+    <div class="container">
+        <form id="userForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
 
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
 
-        <button type="button" onclick="submitForm()">Submit</button>
-        <button type="button" onclick="viewDb()">View DB</button>
-    </form>
+            <button type="button" onclick="submitForm()">Submit</button>
+            <button type="button" onclick="viewDb()">View DB</button>
+        </form>
+
+        <div id="dbData" class="db-container"></div>
+    </div>
 
     <script src="script.js"></script>
 </body>
