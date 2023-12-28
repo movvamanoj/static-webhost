@@ -1,11 +1,10 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Form</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -16,18 +15,34 @@
             <label for="phone">Phone Number:</label>
             <input type="tel" id="phone" name="phone" required>
 
-            <button type="button" onclick="submitForm()">Submit</button>
-            <button type="button" onclick="viewDb()">View DB</button>
+            <button type="button" class="submit-button" id="submitBtn">Submit</button>
+            <button type="button" class="view-button" id="viewBtn">View DB</button>
         </form>
 
         <div id="dbData" class="db-container"></div>
     </div>
+
     <div id="errorModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" id="closeModal">&times;</span>
             <p id="errorMessage"></p>
         </div>
     </div>
+
     <script src="script.js"></script>
+    <script>
+        // Add event listeners in your script.js file
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            submitForm();
+            this.style.backgroundColor = '#27ae60'; // Change color on click
+        });
+
+        document.getElementById('viewBtn').addEventListener('click', function() {
+            viewDb();
+            this.style.backgroundColor = '#3498db'; // Change color on click
+        });
+
+        document.getElementById('closeModal').addEventListener('click', closeModal);
+    </script>
 </body>
 </html>

@@ -31,15 +31,27 @@ input {
 button {
     padding: 10px;
     margin-bottom: 8px;
-    background-color: #4caf50;
-    color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
-button:hover {
+.submit-button {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.submit-button:hover {
     background-color: #45a049;
+}
+
+.view-button {
+    background-color: #008CBA;
+    color: #fff;
+}
+
+.view-button:hover {
+    background-color: #007BAA;
 }
 
 .db-container {
@@ -48,7 +60,6 @@ button:hover {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow-x: auto; /* Add horizontal scrollbar if needed */
 }
 
 table {
@@ -75,9 +86,8 @@ th {
         margin: 20px;
     }
 }
-/* Add this CSS to your style.css file */
 
-/* The Modal */
+/* Modal styles */
 .modal {
     display: none;
     position: fixed;
@@ -90,7 +100,7 @@ th {
     background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal Content */
+/* Modal Content styles */
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -102,7 +112,7 @@ th {
     max-width: 400px;
 }
 
-/* Close Button */
+/* Close Button styles */
 .close {
     color: #aaa;
     float: right;
@@ -117,7 +127,7 @@ th {
     cursor: pointer;
 }
 
-/* Add some animation for the modal */
+/* Modal Animation */
 .modal-content {
     animation: zoomIn 0.3s;
 }
