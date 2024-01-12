@@ -1,13 +1,13 @@
 #!/bin/bash
-# # Change to the home directory
-# cd ~
+# Change to the home directory
+cd ~
 
-# # Download app.js from GitHub to the home path
-# curl -O https://raw.githubusercontent.com/movvamanoj/static-webhost/main/app.js
+# Download app.js from GitHub to the home path
+curl -O https://raw.githubusercontent.com/movvamanoj/static-webhost/main/app.js
 
-# # Display the path where app.js is downloaded
-# downloaded_file_path=$(pwd)/app.js
-# echo "app.js is downloaded to: $downloaded_file_path"
+# Display the path where app.js is downloaded
+downloaded_file_path=$(pwd)/app.js
+echo "app.js is downloaded to: $downloaded_file_path"
 
 # Function to check npm version
 check_npm_version() {
