@@ -1,6 +1,6 @@
 #!/bin/bash
 # Change to the home directory
-cd ~
+cd /home/ec2-user/
 
 # Download app.js from GitHub to the home path
 curl -O https://raw.githubusercontent.com/movvamanoj/static-webhost/main/app.js
