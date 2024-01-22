@@ -1,7 +1,4 @@
 #!/bin/bash
-# Change to the home directory
-cd /home/ec2-user/
-
 # Download app.js from GitHub to the home path
 curl -O https://raw.githubusercontent.com/movvamanoj/static-webhost/main/app.js
 
@@ -143,5 +140,18 @@ if command -v pm2 >/dev/null && [[ -f node_modules ]]; then
 else
   echo "Installing Node.js packages and pm2..."
   install_nodejs_packages  # Install the packages (including pm2)
-  pm2 start app.js
+
+  # Make sure the npm-global directory is owned by the current user
+  chown -R $USER:$USER ~/.npm-global
+
+  # Add npm-global/bin to the PATH for the current user
+  export PATH=~/.npm-global/bin:$PATH
+
+  # Check if pm2 is installed successfully
+  if command -v pm2 >/dev/null; then
+    echo "Starting app.js using pm2..."
+    pm2 start app.js
+  else
+    echo "Error: pm2 installation failed."
+  fi
 fi
