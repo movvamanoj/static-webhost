@@ -75,8 +75,6 @@ configure_nodejs_npm_centos() {
 
 install_nodejs_packages() {
   check_npm_version
-  echo " Export PATH for pm2 to be available in the script's environment"
-  export PATH=~/.npm-global/bin:$PATH
   echo "Installing Node.js packages..."
   npm install express body-parser aws-sdk
   npm install -g pm2
@@ -113,10 +111,11 @@ install_configure_cloudwatch_agent_centos() {
 
 # Check npm version before proceeding
 check_npm_version
-# echo " Export PATH for pm2 to be available in the script's environment"
-# export PATH=~/.npm-global/bin:$PATH
-install_common_packages
 
+install_common_packages
+echo " Export PATH for pm2 to be available in the script's environment"
+echo "Exporting PATH: ~/.npm-global/bin:$PATH"
+export PATH=~/.npm-global/bin:$PATH
 
 # Check the Linux distribution and run commands accordingly
 if [[ -f /etc/redhat-release ]]; then
