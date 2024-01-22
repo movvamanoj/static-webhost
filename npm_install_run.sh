@@ -60,10 +60,11 @@ configure_nodejs_npm_amazon() {
   sudo yum install -y nodejs npm
   mkdir -p ~/.npm-global
   npm config set prefix '~/.npm-global'
-  echo "Exporting PATH: ~/.npm-global/bin:$PATH"
-  echo "Export PATH for pm2 to be available in the script's environment"
-  echo "Exporting PATH: ~/.npm-global/bin:$PATH"
   export PATH=~/.npm-global/bin:$PATH
+  # # Check and update PATH only if needed
+  # if [[ ! $PATH =~ (".*\/~\/.npm-global\/bin:") ]]; then
+  #   export PATH=~/.npm-global/bin:$PATH
+  # fi
   npm install -g npm@10.3.0
 }
 
@@ -83,7 +84,8 @@ install_nodejs_packages() {
   check_npm_version
   echo "Installing Node.js packages..."
   npm install express body-parser aws-sdk
-  npm install -g pm2
+  sudo npm install -g pm2
+  pm2 --version
   npm install winston winston-cloudwatch @aws-sdk/client-dynamodb
 }
 
