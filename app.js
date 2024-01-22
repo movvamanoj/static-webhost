@@ -17,7 +17,7 @@ const logger = winston.createLogger({
         new WinstonCloudWatch({
             logGroupName: 'HostLogGroupName', 
             logStreamName: 'HostLogStreamName', 
-            awsRegion: 'us-east-2', 
+            awsRegion: 'us-east-1', 
             messageFormatter: ({ level, message, meta }) => `[${level}] ${message} ${meta ? JSON.stringify(meta) : ''}`,
         }),
     ],
@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const dynamoDB = new DynamoDBClient({
-    region: 'us-east-2',
+    region: 'us-east-1',
 });
 
 const tableName = 'hellostaticwebhost';
