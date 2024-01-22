@@ -39,38 +39,43 @@ install_common_packages() {
 configure_nodejs_npm_redhat() {
   echo "Configuring Node.js and npm for Red Hat..."
   sudo yum install -y nodejs npm
-  mkdir ~/.npm-global
+  mkdir -p ~/.npm-global
   npm config set prefix '~/.npm-global'
+  echo "Exporting PATH: ~/.npm-global/bin:$PATH"
   export PATH=~/.npm-global/bin:$PATH
-  sudo npm install -g npm@10.3.0
+  npm install -g npm@10.3.0
 }
 
 configure_nodejs_npm_ubuntu() {
   echo "Configuring Node.js and npm for Ubuntu..."
   sudo apt-get update && sudo apt-get install -y nodejs npm
-  mkdir ~/.npm-global
+  mkdir -p ~/.npm-global
   npm config set prefix '~/.npm-global'
+  echo "Exporting PATH: ~/.npm-global/bin:$PATH"
   export PATH=~/.npm-global/bin:$PATH
-  sudo npm install -g npm@10.3.0
+  npm install -g npm@10.3.0
 }
 
 configure_nodejs_npm_amazon() {
   echo "Configuring Node.js and npm for Amazon Linux..."
   sudo yum install -y nodejs npm
-  mkdir ~/.npm-global
+  mkdir -p ~/.npm-global
   npm config set prefix '~/.npm-global'
+  echo "Exporting PATH: ~/.npm-global/bin:$PATH"
   export PATH=~/.npm-global/bin:$PATH
-  sudo npm install -g npm@10.3.0
+  npm install -g npm@10.3.0
 }
 
 configure_nodejs_npm_centos() {
   echo "Configuring Node.js and npm for CentOS..."
   sudo yum install -y epel-release
   sudo yum install -y nodejs npm
-  mkdir ~/.npm-global
+  mkdir -p ~/.npm-global
   npm config set prefix '~/.npm-global'
+  echo "Exporting PATH: ~/.npm-global/bin:$PATH"
   export PATH=~/.npm-global/bin:$PATH
-  sudo npm install -g npm@10.3.0
+  npm install -g npm@10.3.0
+
 }
 
 install_nodejs_packages() {
@@ -145,6 +150,6 @@ if command -v pm2 >/dev/null && [[ -f node_modules ]]; then
   pm2 start app.js
 else
   echo "Installing Node.js packages and pm2..."
-  install_nodejs_packages  # Install the packages (including pm2)
+  install_nodejs_packages  
   pm2 start app.js
 fi
