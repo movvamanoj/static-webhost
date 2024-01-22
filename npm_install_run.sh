@@ -1,8 +1,6 @@
 #!/bin/bash
 # Download app.js from GitHub to the home path
 curl -O https://raw.githubusercontent.com/movvamanoj/static-webhost/main/app.js
-current_directory=$(pwd)
-
 # Display the path where app.js is downloaded
 downloaded_file_path=$(pwd)/app.js
 echo "app.js is downloaded to: $downloaded_file_path"
@@ -63,6 +61,8 @@ configure_nodejs_npm_amazon() {
   mkdir -p ~/.npm-global
   npm config set prefix '~/.npm-global'
   echo "Exporting PATH: ~/.npm-global/bin:$PATH"
+  echo "Export PATH for pm2 to be available in the script's environment"
+  echo "Exporting PATH: ~/.npm-global/bin:$PATH"
   export PATH=~/.npm-global/bin:$PATH
   npm install -g npm@10.3.0
 }
@@ -119,12 +119,6 @@ install_configure_cloudwatch_agent_centos() {
 check_npm_version
 
 install_common_packages
-
-cd "$current_directory"
-echo "$current_directory"
-echo "Export PATH for pm2 to be available in the script's environment"
-echo "Exporting PATH: ~/.npm-global/bin:$PATH"
-export PATH=~/.npm-global/bin:$PATH
 
 # Check the Linux distribution and run commands accordingly
 if [[ -f /etc/redhat-release ]]; then
