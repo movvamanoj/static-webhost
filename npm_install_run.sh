@@ -1,6 +1,7 @@
 #!/bin/bash
 # Download app.js from GitHub to the home path
 curl -O https://raw.githubusercontent.com/movvamanoj/static-webhost/main/app.js
+current_directory=$(pwd)
 
 # Display the path where app.js is downloaded
 downloaded_file_path=$(pwd)/app.js
@@ -84,9 +85,6 @@ install_nodejs_packages() {
   npm install express body-parser aws-sdk
   npm install -g pm2
   npm install winston winston-cloudwatch @aws-sdk/client-dynamodb
-  echo " Export PATH for pm2 to be available in the script's environment"
-  echo "Exporting PATH: ~/.npm-global/bin:$PATH"
-  export PATH=~/.npm-global/bin:$PATH
 }
 
 install_configure_cloudwatch_agent_redhat() {
@@ -121,9 +119,12 @@ install_configure_cloudwatch_agent_centos() {
 check_npm_version
 
 install_common_packages
-# echo " Export PATH for pm2 to be available in the script's environment"
-# echo "Exporting PATH: ~/.npm-global/bin:$PATH"
-# export PATH=~/.npm-global/bin:$PATH
+
+cd "$current_directory"
+echo "$current_directory"
+echo "Export PATH for pm2 to be available in the script's environment"
+echo "Exporting PATH: ~/.npm-global/bin:$PATH"
+export PATH=~/.npm-global/bin:$PATH
 
 # Check the Linux distribution and run commands accordingly
 if [[ -f /etc/redhat-release ]]; then
