@@ -133,10 +133,22 @@ elif [[ -f /etc/centos-release ]]; then
   install_configure_cloudwatch_agent_centos
 fi
 
+#!/bin/bash
+
+# ... (previous script content)
+
 # Start the application using pm2, checking for package installation
 if command -v pm2 >/dev/null && [[ -f node_modules ]]; then 
   echo "Starting app.js using pm2..."
-  pm2 start app.js
+
+  # Make sure the npm-global directory is owned by the current user
+  chown -R $USER:$USER ~/.npm-global
+
+  # Add npm-global/bin to the PATH for the current user
+  export PATH=~/.npm-global/bin:$PATH
+
+  # Start the application using pm2 as the default user
+  sudo -u $default_username pm2 start app.js
 else
   echo "Installing Node.js packages and pm2..."
   install_nodejs_packages  # Install the packages (including pm2)
@@ -147,10 +159,10 @@ else
   # Add npm-global/bin to the PATH for the current user
   export PATH=~/.npm-global/bin:$PATH
 
-  # Check if pm2 is installed successfully
+  # Check if pm2 is installed successfully and start the application as the default user
   if command -v pm2 >/dev/null; then
     echo "Starting app.js using pm2..."
-    pm2 start app.js
+    sudo -u $default_username pm2 start app.js
   else
     echo "Error: pm2 installation failed."
   fi
