@@ -133,9 +133,9 @@ elif [[ -f /etc/centos-release ]]; then
   install_configure_cloudwatch_agent_centos
 fi
 
-#!/bin/bash
 
-# ... (previous script content)
+# Determine the default username based on UID 1000
+default_username=$(getent passwd 1000 | cut -d: -f1)
 
 # Start the application using pm2, checking for package installation
 if command -v pm2 >/dev/null && [[ -f node_modules ]]; then 
