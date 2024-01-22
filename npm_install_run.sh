@@ -111,9 +111,10 @@ install_configure_cloudwatch_agent_centos() {
 
 # Check npm version before proceeding
 check_npm_version
+echo " Export PATH for pm2 to be available in the script's environment"
+export PATH=~/.npm-global/bin:$PATH
 install_common_packages
-# Export PATH for pm2 to be available in the script's environment
-export PATH=~/.npm-global/bin:$PATH  # Add this line
+
 
 # Check the Linux distribution and run commands accordingly
 if [[ -f /etc/redhat-release ]]; then
@@ -137,6 +138,8 @@ fi
 
 # Start the application using pm2, checking for package installation
 if command -v pm2 >/dev/null && [[ -f node_modules ]]; then 
+  # echo " Export PATH for pm2 to be available in the script's environment"
+  # export PATH=~/.npm-global/bin:$PATH
   echo "Starting app.js using pm2..."
   pm2 start app.js
 else
