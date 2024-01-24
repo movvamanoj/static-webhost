@@ -82,6 +82,7 @@ configure_nodejs_npm_centos() {
 
 install_nodejs_packages() {
   check_npm_version
+  npm install cors
   echo "Installing Node.js packages..."
   npm install express body-parser aws-sdk
   sudo npm install -g pm2
