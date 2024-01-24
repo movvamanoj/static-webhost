@@ -34,7 +34,7 @@ const dynamoDB = new DynamoDBClient({
     region: 'us-east-1',
 });
 
-const tableName = 'hellostaticwebhost';
+const tableName = 'test-web-infra';
 
 // Submit data endpoint
 app.post('/submit', async (req, res) => {
